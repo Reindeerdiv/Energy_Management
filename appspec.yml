@@ -1,0 +1,17 @@
+
+version: 0.0
+os: linux
+files:
+  - source: target/EmployeeApplication.jar
+    destination: /home/ubuntu
+permissions:
+  - object: /scripts
+    pattern: "**"
+    mode: 777
+    type:
+      - file     
+hooks:
+   AfterInstall:
+     - location: /scripts/deploy.sh
+       timeout: 3600
+
